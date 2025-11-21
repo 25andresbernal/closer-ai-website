@@ -489,6 +489,105 @@
       color: var(--text-secondary);
     }
 
+    /* Scroll Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-in-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+
+    .fade-in-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .fade-in-right {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+
+    .fade-in-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .scale-in {
+      opacity: 0;
+      transform: scale(0.9);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .scale-in.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .slide-up {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .slide-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .stagger-1 {
+      transition-delay: 0.1s;
+    }
+
+    .stagger-2 {
+      transition-delay: 0.2s;
+    }
+
+    .stagger-3 {
+      transition-delay: 0.3s;
+    }
+
+    .stagger-4 {
+      transition-delay: 0.4s;
+    }
+
+    .stagger-5 {
+      transition-delay: 0.5s;
+    }
+
+    .stagger-6 {
+      transition-delay: 0.6s;
+    }
+
+    /* Floating animation for hero elements */
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .float-animate {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    /* Parallax effect */
+    .parallax {
+      transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
     /* Responsive */
     @media (max-width: 1024px) {
       .hero-title {
@@ -576,20 +675,20 @@
   <main>
     <!-- Hero -->
     <section class="hero">
-      <h1 class="hero-title">Stop guessing where your leads come from</h1>
-      <p class="hero-subtitle">
+      <h1 class="hero-title fade-in">Stop guessing where your leads come from</h1>
+      <p class="hero-subtitle fade-in stagger-1">
         Turn sales call recordings into accurate lead-source attribution and revenue intelligence for your CRM.
       </p>
-      <div class="hero-cta">
+      <div class="hero-cta fade-in stagger-2">
         <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
           Join pilot program
         </button>
       </div>
-      <p class="hero-note">
+      <p class="hero-note fade-in stagger-3">
         Working with design partners in home services, healthcare, and local B2B
       </p>
 
-      <div class="feature-demo">
+      <div class="feature-demo scale-in stagger-4 parallax float-animate">
         <div class="demo-header">
           <div class="demo-indicator"></div>
           <span class="demo-label">Live call analysis</span>
@@ -616,7 +715,7 @@
 
     <!-- Solution -->
     <section id="solution">
-      <div class="section-header">
+      <div class="section-header fade-in">
         <div class="section-kicker">The Solution</div>
         <h2 class="section-title">Reliable revenue intelligence from every conversation</h2>
         <p class="section-subtitle">
@@ -624,7 +723,7 @@
         </p>
       </div>
       <div class="two-col">
-        <div class="card">
+        <div class="card fade-in-left stagger-1">
           <h3 class="card-title">What it does</h3>
           <ul class="card-list">
             <li>Transcribes every sales call with high accuracy</li>
@@ -633,7 +732,7 @@
             <li>Syncs clean data to your CRM in real-time</li>
           </ul>
         </div>
-        <div class="card">
+        <div class="card fade-in-right stagger-2">
           <h3 class="card-title">What you gain</h3>
           <ul class="card-list">
             <li>Accurate marketing attribution by channel</li>
@@ -647,7 +746,7 @@
 
     <!-- How It Works -->
     <section id="how">
-      <div class="section-header">
+      <div class="section-header fade-in">
         <div class="section-kicker">How It Works</div>
         <h2 class="section-title">Three steps to trusted data</h2>
         <p class="section-subtitle">
@@ -655,21 +754,21 @@
         </p>
       </div>
       <div class="three-col">
-        <div class="step-card">
+        <div class="step-card slide-up stagger-1">
           <div class="step-number">1</div>
           <h3 class="step-title">Connect</h3>
           <p class="step-text">
             Integrate with your phone provider or upload call recordings. We handle secure storage and processing.
           </p>
         </div>
-        <div class="step-card">
+        <div class="step-card slide-up stagger-3">
           <div class="step-number">2</div>
           <h3 class="step-title">Analyze</h3>
           <p class="step-text">
             AI transcribes and analyzes conversations to identify lead source, referrals, and outcomes naturally.
           </p>
         </div>
-        <div class="step-card">
+        <div class="step-card slide-up stagger-5">
           <div class="step-number">3</div>
           <h3 class="step-title">Sync</h3>
           <p class="step-text">
@@ -681,14 +780,14 @@
 
     <!-- Contact -->
     <section id="contact">
-      <div class="section-header">
+      <div class="section-header fade-in">
         <div class="section-kicker">Join Our Pilot</div>
         <h2 class="section-title">Become a design partner</h2>
         <p class="section-subtitle">
           We're working with select phone-heavy businesses to validate and refine the product.
         </p>
       </div>
-      <div class="contact-container">
+      <div class="contact-container scale-in stagger-2">
         <form>
           <div>
             <label for="name">Name</label>
@@ -722,6 +821,168 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Intersection Observer for scroll animations - triggers both ways
+    const observerOptions = {
+      threshold: 0.15,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        } else {
+          // Remove visible class when scrolling out of view
+          entry.target.classList.remove('visible');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all animated elements
+    const animatedElements = document.querySelectorAll(
+      '.fade-in, .fade-in-left, .fade-in-right, .scale-in, .slide-up'
+    );
+    
+    animatedElements.forEach(el => observer.observe(el));
+
+    // Parallax effect on scroll
+    let ticking = false;
+    
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrolled = window.pageYOffset;
+          const parallaxElements = document.querySelectorAll('.parallax');
+          
+          parallaxElements.forEach(el => {
+            const speed = 0.3;
+            const rect = el.getBoundingClientRect();
+            const elementTop = rect.top + scrolled;
+            const elementVisible = rect.top < window.innerHeight && rect.bottom > 0;
+            
+            if (elementVisible) {
+              const yPos = -(scrolled - elementTop) * speed;
+              el.style.transform = `translateY(${yPos}px)`;
+            }
+          });
+          
+          ticking = false;
+        });
+        
+        ticking = true;
+      }
+    });
+
+    // Add hover effect to cards for enhanced interactivity
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+      card.addEventListener('mouseenter', function(e) {
+        this.style.transform = 'translateY(-8px) scale(1.02)';
+      });
+      
+      card.addEventListener('mouseleave', function(e) {
+        this.style.transform = 'translateY(0) scale(1)';
+      });
+    });
+
+    // Animate numbers counting up when visible
+    const animateValue = (element, start, end, duration) => {
+      const range = end - start;
+      const increment = range / (duration / 16);
+      let current = start;
+      
+      // Clear any existing animation
+      if (element.animationTimer) {
+        clearInterval(element.animationTimer);
+      }
+      
+      element.animationTimer = setInterval(() => {
+        current += increment;
+        if ((increment > 0 && current >= end) || (increment < 0 && current <= end)) {
+          current = end;
+          clearInterval(element.animationTimer);
+        }
+        
+        if (element.dataset.originalText.includes('%')) {
+          element.textContent = Math.round(current) + '%';
+        } else if (element.dataset.originalText.includes('min')) {
+          element.textContent = Math.round(current) + 'min';
+        }
+      }, 16);
+    };
+
+    // Observe stats for counting animation - triggers both ways
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const text = entry.target.textContent;
+        
+        // Store original text on first observation
+        if (!entry.target.dataset.originalText) {
+          entry.target.dataset.originalText = text;
+        }
+        
+        const number = parseInt(entry.target.dataset.originalText);
+        
+        if (entry.isIntersecting) {
+          if (!isNaN(number)) {
+            entry.target.textContent = '0' + entry.target.dataset.originalText.replace(/[0-9]/g, '');
+            animateValue(entry.target, 0, number, 1500);
+          }
+        } else {
+          // Reset to 0 when scrolling out
+          if (!isNaN(number)) {
+            if (entry.target.animationTimer) {
+              clearInterval(entry.target.animationTimer);
+            }
+            entry.target.textContent = '0' + entry.target.dataset.originalText.replace(/[0-9]/g, '');
+          }
+        }
+      });
+    }, { threshold: 0.5 });
+
+    const statValues = document.querySelectorAll('.demo-stat-value');
+    statValues.forEach(stat => statsObserver.observe(stat));
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Add subtle mouse parallax effect to hero card
+    const heroCard = document.querySelector('.feature-demo');
+    if (heroCard) {
+      document.addEventListener('mousemove', (e) => {
+        const rect = heroCard.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
+          const xPercent = (x / rect.width - 0.5) * 2;
+          const yPercent = (y / rect.height - 0.5) * 2;
+          
+          heroCard.style.transform = `
+            perspective(1000px) 
+            rotateY(${xPercent * 2}deg) 
+            rotateX(${-yPercent * 2}deg) 
+            translateY(-10px)
+          `;
+        }
+      });
+      
+      heroCard.addEventListener('mouseleave', () => {
+        heroCard.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg) translateY(-10px)';
+      });
+    }
   </script>
 </body>
 </html>
